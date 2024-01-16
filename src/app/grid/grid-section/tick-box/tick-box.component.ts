@@ -13,20 +13,18 @@ export class TickBoxComponent {
   // TODO make this aware of its position in the grid section
   colourState: string = 'unticked';
   onClickBox(): void {
+    // TODO code that a bit less nasty
     if (this.colourState == 'unticked') {
-      this.colourState = 'true';
-      console.log('clicked!');
+      this.colourState = 'false';
       return;
     }
 
     if (this.colourState == 'true') {
-      this.colourState = 'false';
-      console.log('clicked!');
+      this.colourState = 'unticked';
       return;
     }
     if (this.colourState == 'false') {
-      this.colourState = 'unticked';
-      console.log('clicked!');
+      this.colourState = 'true';
       return;
     }
   }
