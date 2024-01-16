@@ -1,0 +1,21 @@
+.tick-box {
+    border-style: solid;
+    border-color: black;
+    border-width: thin;
+    width: 50px;
+    aspect-ratio: 1 / 1;
+}
+
+
+.unticked {
+    @extend .tick-box;
+    background-color: whitesmoke;
+}
+.true {
+    @extend .tick-box;
+    background-color: greenyellow;
+}
+.false {
+    @extend .tick-box;
+    background-color: red;
+}
