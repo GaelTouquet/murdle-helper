@@ -1,5 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Subscription } from 'rxjs/internal/Subscription';
+import { GridService } from '../../../grid.service';
+import { BoxState, boxStatePermutations } from './boxStates';
 
 @Component({
   selector: 'app-tick-box',
@@ -9,23 +12,35 @@ import { Component } from '@angular/core';
   styleUrl: './tick-box.component.scss',
 })
 export class TickBoxComponent {
-  // TODO change this colourState to a cleaner type
   // TODO make this aware of its position in the grid section
-  colourState: string = 'unticked';
-  onClickBox(): void {
-    // TODO code that a bit less nasty
-    if (this.colourState == 'unticked') {
-      this.colourState = 'false';
-      return;
-    }
-
-    if (this.colourState == 'true') {
+  public locked: boolean;
+  public colourState: BoxState;
+  private clearSubscription: Subscription;
+  private lockInSubscription: Subscription;
+  private unlockSubscription: Subscription;
+  constructor(private gridService: GridService) {
+    this.colourState = 'unticked';
+    this.locked = false;
+    this.clearSubscription = Subscription.EMPTY;
+    this.lockInSubscription = Subscription.EMPTY;
+    this.unlockSubscription = Subscription.EMPTY;
+  }
+  ngOnInit() {
+    this.clearSubscription = this.gridService.clearMessenger.subscribe(() => {
+      if (this.locked) this.locked = false;
       this.colourState = 'unticked';
-      return;
-    }
-    if (this.colourState == 'false') {
-      this.colourState = 'true';
-      return;
-    }
+    });
+    this.lockInSubscription = this.gridService.lockInMessenger.subscribe(() => {
+      if (this.colourState != 'unticked') this.locked = true;
+    });
+    this.unlockSubscription = this.gridService.unlockMessenger.subscribe(() => {
+      if (this.locked) this.locked = false;
+    });
+  }
+  ngOnDestroy() {
+    if (this.clearSubscription) this.clearSubscription.unsubscribe();
+  }
+  onClickBox(): void {
+    if (!this.locked) this.colourState = boxStatePermutations[this.colourState];
   }
 }

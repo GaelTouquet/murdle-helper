@@ -10,5 +10,5 @@ import { TickBoxComponent } from './tick-box/tick-box.component';
   styleUrl: './grid-section.component.scss',
 })
 export class GridSectionComponent {
-  size: number = 3;
+  size: number = 4;
 }

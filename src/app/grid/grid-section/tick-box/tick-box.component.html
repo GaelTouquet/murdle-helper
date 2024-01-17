@@ -1,2 +1,2 @@
-<div [ngClass]="{'unticked': colourState=='unticked','true': colourState=='true','false': colourState=='false'}" (click)="onClickBox()">
+<div [ngClass]="locked ? colourState+'locked' : colourState" (click)="onClickBox()">
 </div>

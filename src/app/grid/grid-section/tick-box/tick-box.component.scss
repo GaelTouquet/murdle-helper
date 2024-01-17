@@ -19,3 +19,12 @@
     @extend .tick-box;
     background-color: red;
 }
+
+.truelocked {
+    @extend .true;
+    background-color: green;
+}
+.falselocked {
+    @extend .tick-box;
+    background-color: darkred;
+}
