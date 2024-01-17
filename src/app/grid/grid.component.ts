@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { complexity } from '../../parameters';
 import { GridSectionComponent } from './grid-section/grid-section.component';
 
 @Component({
@@ -9,4 +10,6 @@ import { GridSectionComponent } from './grid-section/grid-section.component';
   templateUrl: './grid.component.html',
   styleUrl: './grid.component.scss',
 })
-export class GridComponent {}
+export class GridComponent {
+  complexity: number = complexity;
+}

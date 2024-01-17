@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { possibilities } from '../../../parameters';
 import { TickBoxComponent } from './tick-box/tick-box.component';
 
 @Component({
@@ -10,5 +11,5 @@ import { TickBoxComponent } from './tick-box/tick-box.component';
   styleUrl: './grid-section.component.scss',
 })
 export class GridSectionComponent {
-  size: number = 4;
+  possibilities: number = possibilities;
 }

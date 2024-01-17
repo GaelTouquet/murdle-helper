@@ -1,8 +1,7 @@
 <div class="section">
-    <div class="row" *ngFor="let item of [].constructor(3); let i = index">
-        <div class="sections" *ngFor="let item of [].constructor(3 - i)">
-            
-        <app-grid-section></app-grid-section>
+    <div class="row" *ngFor="let item of [].constructor(complexity); let i = index">
+        <div class="sections" *ngFor="let item of [].constructor(complexity - i); let j = index">
+            <app-grid-section></app-grid-section>
         </div>
     </div>
 </div>
