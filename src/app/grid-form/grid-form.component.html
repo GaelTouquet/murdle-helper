@@ -2,4 +2,9 @@
         <button (click)="clearGrid()">clear</button>
         <button (click)="lockIn()">lock in</button>
         <button (click)="unlock()">unlock!</button>
+        <button (click)="solve()">BOTgico!</button>
+        <button (click)="solve(true,false,false,false)">eliminate when known</button>
+        <button (click)="solve(false,true,false,false)">check others are all rejected</button>
+        <button (click)="solve(false,false,true,false)">spread</button>
+        <button (click)="solve(false,false,false,true)">concurrency</button>
 </div>

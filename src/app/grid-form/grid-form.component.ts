@@ -19,4 +19,12 @@ export class GridFormComponent {
   public unlock() {
     this.gridService.unlock();
   }
+  public solve(
+    eliminate: boolean = true,
+    fromElimination: boolean = true,
+    spread: boolean = true,
+    concurrency: boolean = true
+  ) {
+    this.gridService.solve(eliminate, fromElimination, spread, concurrency);
+  }
 }

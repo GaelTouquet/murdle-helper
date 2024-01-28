@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input, Optional } from '@angular/core';
 import { possibilities } from '../../../parameters';
+import { ICoordinates } from '../coordinates';
 import { TickBoxComponent } from './tick-box/tick-box.component';
 
 @Component({
@@ -12,4 +13,5 @@ import { TickBoxComponent } from './tick-box/tick-box.component';
 })
 export class GridSectionComponent {
   possibilities: number = possibilities;
+  @Input() coordinates: ICoordinates = { x: -99, y: -99 };
 }
